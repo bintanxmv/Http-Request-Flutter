@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http_request_xir3/models/movie.dart';
 import 'package:http_request_xir3/pages/movie_detail.dart';
+import 'package:http_request_xir3/pages/profile.dart';
 import 'package:http_request_xir3/service/http_service.dart';
 
 class MovieList extends StatefulWidget {
@@ -24,7 +25,7 @@ class _MovieListState extends State<MovieList> {
   }
 
   Future<void> initialize() async {
-    movies= [];
+    movies = [];
     movies = await service!.getPopularMovies() as List<Movie>;
     setState(() {
       moviesCount = movies!.length;
@@ -36,7 +37,7 @@ class _MovieListState extends State<MovieList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Your Movies"),
+        title: const Text("Sotel Movies"),
         backgroundColor: Colors.purple,
         foregroundColor: Colors.white,
       ),
@@ -64,6 +65,25 @@ class _MovieListState extends State<MovieList> {
             ),
           );
         },
+      ),
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.blueAccent[300],
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            IconButton(onPressed: () {}, icon: Icon(Icons.home)),
+            IconButton(onPressed: () {}, icon: Icon(Icons.movie)),
+            IconButton(onPressed: () {}, icon: Icon(Icons.search)),
+            IconButton(onPressed: () {}, icon: Icon(Icons.bookmark)),
+            IconButton(onPressed: () {
+            Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => ProfilePage()),
+          );
+              
+            }, icon: Icon(Icons.person)),
+          ],
+        ),
       ),
     );
   }
