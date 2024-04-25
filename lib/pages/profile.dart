@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:http_request_xir3/pages/movie_list.dart';
 
 class ProfilePage extends StatelessWidget {
   @override
@@ -17,6 +18,34 @@ class ProfilePage extends StatelessWidget {
             _UserInfo(),
             SizedBox(height: 20),
             ..._Buttons(),
+          ],
+        ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.blueAccent[300],
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            IconButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => MovieList(),
+                      ));
+                },
+                icon: Icon(Icons.home)),
+            IconButton(onPressed: () {}, icon: Icon(Icons.movie)),
+            IconButton(onPressed: () {}, icon: Icon(Icons.search)),
+            IconButton(onPressed: () {}, icon: Icon(Icons.bookmark)),
+            IconButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ProfilePage()),
+                  );
+                },
+                icon: Icon(Icons.person)),
           ],
         ),
       ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http_request_xir3/models/movie.dart';
+import 'package:http_request_xir3/pages/movie_list.dart';
+import 'package:http_request_xir3/pages/profile.dart';
 
 class MovieDetail extends StatelessWidget {
   final Movie movie;
@@ -79,11 +81,26 @@ class MovieDetail extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            IconButton(onPressed: () {}, icon: Icon(Icons.home)),
+            IconButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => MovieList(),
+                      ));
+                },
+                icon: Icon(Icons.home)),
             IconButton(onPressed: () {}, icon: Icon(Icons.movie)),
             IconButton(onPressed: () {}, icon: Icon(Icons.search)),
             IconButton(onPressed: () {}, icon: Icon(Icons.bookmark)),
-            IconButton(onPressed: () {}, icon: Icon(Icons.person)),
+            IconButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ProfilePage()),
+                  );
+                },
+                icon: Icon(Icons.person)),
           ],
         ),
       ),

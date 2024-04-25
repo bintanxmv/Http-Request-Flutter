@@ -71,7 +71,13 @@ class _MovieListState extends State<MovieList> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            IconButton(onPressed: () {}, icon: Icon(Icons.home)),
+            IconButton(onPressed: () {
+               Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => MovieList(),
+                      ));
+            }, icon: Icon(Icons.home)),
             IconButton(onPressed: () {}, icon: Icon(Icons.movie)),
             IconButton(onPressed: () {}, icon: Icon(Icons.search)),
             IconButton(onPressed: () {}, icon: Icon(Icons.bookmark)),
