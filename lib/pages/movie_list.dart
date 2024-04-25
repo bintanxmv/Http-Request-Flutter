@@ -4,14 +4,17 @@ import 'package:http_request_xir3/pages/movie_detail.dart';
 import 'package:http_request_xir3/service/http_service.dart';
 
 class MovieList extends StatefulWidget {
+  const MovieList({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _MovieListState createState() => _MovieListState();
 }
 
 class _MovieListState extends State<MovieList> {
   int moviesCount = 0;
-  List<Movie> movies = [];
-  HttpService service = HttpService();
+  List? movies;
+  HttpService? service = HttpService();
 
   @override
   void initState() {
@@ -21,9 +24,11 @@ class _MovieListState extends State<MovieList> {
   }
 
   Future<void> initialize() async {
-    movies = await service.getPopularMovies() as List<Movie>;
+    movies= [];
+    movies = await service!.getPopularMovies() as List<Movie>;
     setState(() {
-      moviesCount = movies.length;
+      moviesCount = movies!.length;
+      movies = movies;
     });
   }
 
@@ -43,16 +48,16 @@ class _MovieListState extends State<MovieList> {
             elevation: 2.0,
             child: ListTile(
               leading: Image(
-                  image: NetworkImage(movies[position].posterPath ??
+                  image: NetworkImage(movies![position].posterPath ??
                       "https://m.media-amazon.com/images/M/MV5BNjQwZDIyNjAtZGQxMC00OTUwLWFiOWYtNzg2NDc5Mjc1MDQ5XkEyXkFqcGdeQXVyMTAxNzQ1NzI@._V1_.jpg")),
-              title: Text(movies[position].title),
+              title: Text(movies![position].title),
               subtitle:
-                  Text('Rating: ${movies[position].voteAverage.toString()}'),
+                  Text('Rating: ${movies![position].voteAverage.toString()}'),
               onTap: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (_) => MovieDetail(movies[position]),
+                    builder: (_) => MovieDetail(movies![position]),
                   ),
                 );
               },

@@ -7,8 +7,7 @@ class MovieDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String path = movie.posterPath ??
-        'https://cdn.vectorstock.com/i/preview-1x/82/99/no-image-available-like-missing-picture-vector-43938299.jpg';
+    String path = movie.posterPath;
 
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
