@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:http_request_xir3/pages/movie_list.dart';
+import 'package:http_request_xir3/pages/wishlist.dart';
 
 class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.purple,
+        backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
         title: Text('Profile'),
       ),
@@ -21,31 +22,32 @@ class ProfilePage extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: BottomAppBar(
+       bottomNavigationBar: BottomAppBar(
         color: Colors.blueAccent[300],
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            IconButton(
-                onPressed: () {
-                  Navigator.push(
+            IconButton(onPressed: () {
+               Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => MovieList(),
                       ));
-                },
-                icon: Icon(Icons.home)),
+            }, icon: Icon(Icons.home)),
             IconButton(onPressed: () {}, icon: Icon(Icons.movie)),
             IconButton(onPressed: () {}, icon: Icon(Icons.search)),
-            IconButton(onPressed: () {}, icon: Icon(Icons.bookmark)),
-            IconButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => ProfilePage()),
-                  );
-                },
-                icon: Icon(Icons.person)),
+            IconButton(onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => WishlistPage()));
+            }, icon: Icon(Icons.bookmark)),
+            IconButton(onPressed: () {
+            Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => ProfilePage()),
+          );
+              
+            }, icon: Icon(Icons.person)),
           ],
         ),
       ),
@@ -59,7 +61,7 @@ class _UserInfo extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.purple),
+        border: Border.all(color: Colors.blue),
         borderRadius: BorderRadius.circular(8.0),
       ),
       child: Column(
@@ -67,13 +69,13 @@ class _UserInfo extends StatelessWidget {
         children: [
           CircleAvatar(
             radius: 50,
-            backgroundImage: AssetImage('assets/profile_image.png'),
+            backgroundImage: AssetImage('assets/furina.jpg'),
           ),
           SizedBox(
             height: 10,
           ),
-          _UserInfoItem('Nama: John Doe'),
-          _UserInfoItem('Email: johndoe@example.com'),
+          _UserInfoItem('Nama: Furina De Fontaine'),
+          _UserInfoItem('Email: furinadefontaine@gmail.com'),
           _UserInfoItem('No Telp: 1234567890'),
           SizedBox(height: 8),
         ],

@@ -3,13 +3,11 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'package:http_request_xir3/models/movie.dart';
 
-
 class HttpService {
-  final String apiKey = 'api key';
   final String baseUrl = 'https://movie.tukanginyuk.com/api/getmovie?key=';
 
   Future<List<Movie>?> getPopularMovies() async {
-    final String uri = baseUrl + apiKey;
+    final String uri = baseUrl;
 
     http.Response result = await http.get(Uri.parse(uri));
     if (result.statusCode == HttpStatus.ok) {

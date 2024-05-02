@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:http_request_xir3/models/movie.dart';
 import 'package:http_request_xir3/pages/movie_detail.dart';
 import 'package:http_request_xir3/pages/profile.dart';
+import 'package:http_request_xir3/pages/wishlist.dart';
 import 'package:http_request_xir3/service/http_service.dart';
 
 class MovieList extends StatefulWidget {
@@ -38,7 +39,7 @@ class _MovieListState extends State<MovieList> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Sotel Movies"),
-        backgroundColor: Colors.purple,
+        backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
       ),
       body: ListView.builder(
@@ -80,7 +81,11 @@ class _MovieListState extends State<MovieList> {
             }, icon: Icon(Icons.home)),
             IconButton(onPressed: () {}, icon: Icon(Icons.movie)),
             IconButton(onPressed: () {}, icon: Icon(Icons.search)),
-            IconButton(onPressed: () {}, icon: Icon(Icons.bookmark)),
+            IconButton(onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => WishlistPage()));
+            }, icon: Icon(Icons.bookmark)),
             IconButton(onPressed: () {
             Navigator.push(
             context,
