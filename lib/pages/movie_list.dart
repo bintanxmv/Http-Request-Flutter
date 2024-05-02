@@ -41,6 +41,7 @@ class _MovieListState extends State<MovieList> {
         title: const Text("Sotel Movies"),
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
+        
       ),
       body: ListView.builder(
         itemCount: moviesCount,
@@ -97,5 +98,6 @@ class _MovieListState extends State<MovieList> {
         ),
       ),
     );
+    
   }
 }
